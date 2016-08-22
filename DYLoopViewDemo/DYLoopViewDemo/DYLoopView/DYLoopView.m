@@ -55,6 +55,8 @@
         self.titles = titles;
         //选择赋值
         self.didSelected = didSelected;
+        
+        
 
         //NSLog(@"titles = %@",titles);
         

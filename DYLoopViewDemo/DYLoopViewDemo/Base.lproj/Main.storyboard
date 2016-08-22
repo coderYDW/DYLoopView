@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LIm-Hq-Yiq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--轮播器-->
@@ -16,25 +15,9 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iD2-jm-JSb">
-                                <rect key="frame" x="20" y="400" width="560" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="iYL-gY-qNg"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="iD2-jm-JSb" secondAttribute="trailing" id="Cm0-ZU-sRh"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iD2-jm-JSb" secondAttribute="bottom" id="aMk-aa-Dxh"/>
-                            <constraint firstItem="iD2-jm-JSb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mdE-I7-0bJ"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="轮播器" id="7lg-Du-QVY"/>
-                    <connections>
-                        <outlet property="testImageView" destination="iD2-jm-JSb" id="fhE-lg-tyt"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

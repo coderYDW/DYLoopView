@@ -10,15 +10,11 @@
 
 #import "DYLoopView.h"
 
-
-
 @interface ViewController ()
 
-
-
-
 @property (nonatomic, strong) NSArray *imageURLs;
-@property (weak, nonatomic) IBOutlet UIImageView *testImageView;
+@property (nonatomic, strong) NSArray *titles;
+
 
 @end
 
@@ -27,15 +23,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"%@",self.imageURLs);
+    //设置scrollView的自动适应高度为NO
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
-    DYLoopView *loopView = [[DYLoopView alloc] initWithURLs:self.imageURLs titles:nil didSelected:^(NSInteger index) {
+    DYLoopView *loopView = [[DYLoopView alloc] initWithURLs:self.imageURLs titles:self.titles didSelected:^(NSInteger index) {
         
         UIViewController *seletedVC = [[UIViewController alloc] init];
         
-        seletedVC.view.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
-        
         seletedVC.navigationItem.title = [NSString stringWithFormat:@"第%zd张",index];
+        
+        seletedVC.view.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
         
         [self.navigationController pushViewController:seletedVC animated:YES];
         
@@ -45,6 +42,8 @@
     loopView.frame = CGRectMake(0, 100, [UIScreen mainScreen].bounds.size.width, 250);
     
     [self.view addSubview:loopView];
+    
+    
     
     
     
@@ -65,5 +64,18 @@
     return _imageURLs;
 
 }
+
+- (NSArray *)titles {
+    if (_titles == nil) {
+        NSMutableArray *mArr = [[NSMutableArray alloc] init];
+        for (int i = 0; i < self.imageURLs.count; ++i) {
+            NSString *title = [NSString stringWithFormat:@"这是第%zd张图片",i];
+            [mArr addObject:title];
+        }
+        return [mArr copy];
+    }
+    return _titles;
+}
+
 
 @end
